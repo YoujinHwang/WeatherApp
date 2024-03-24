@@ -1,22 +1,20 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 
-const WeatherButton=({cities})=> {
+const WeatherButton=({cities, setCity})=> {
     console.log("cities",cities);
-    //const [city,setCity]=useState('')
+    
 
-    // const searchByCity=(cityName)=>{
-    //     setCity(cityName)
-    //     let url=``
-    //     let res=await fetch(url)
-    //     let data=await res.json()
-    // };
+    
     return (
         <div>
-            <Button variant="warning">Current Location</Button>
+            <Button variant="warning" onClick={()=>setCity("")}>Current Location</Button>
             
             {cities.map((item,index)=>(
-                <Button variant="warning" key={index}>{item}</Button>
+                <Button variant="warning" 
+                key={index}
+                onClick={()=>setCity(item)}
+                >{item}</Button>
             ))}
         </div>
     )
